@@ -10,7 +10,7 @@ export async function getUser(){
     const response = await fetch(`${process.env.REACT_APP_HOST}/users/${cbid}`, requestOptions);
     
     if(!response.ok){
-        throw { message: response.statusText, status: response.status }
+        throw { message: response.statusText, status: response.status }//eslint-disable-line
     }
     
     const data = await response.json();
@@ -27,7 +27,7 @@ export async function getUserOrders(){
     });
 
     if(!response.ok){
-        throw { message: response.statusText, status: response.status }
+        throw { message: response.statusText, status: response.status }//eslint-disable-line
     }
 
     const data = await response.json();
@@ -36,7 +36,6 @@ export async function getUserOrders(){
 
 export async function createOrders(cartItems, cartTotalAmmount, user){
     const token = JSON.parse(sessionStorage.getItem("token"));
-    const cbid = JSON.parse(sessionStorage.getItem("cbid"));
 
     const order = {
         cartList: cartItems,
@@ -59,7 +58,7 @@ export async function createOrders(cartItems, cartTotalAmmount, user){
     })
 
     if(!response.ok){
-        throw { message: response.statusText, status: response.status }
+        throw { message: response.statusText, status: response.status }//eslint-disable-line
     }
 
     const data = await response.json();
